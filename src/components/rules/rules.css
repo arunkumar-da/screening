@@ -1,0 +1,187 @@
+.rules-card {
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds shadow for depth */
+  padding: 20px;
+  margin: 20px auto; 
+  height: 598px; /* Default height for larger screens */
+  width: 1300px;
+  margin-top: 8%; /* Default margin-top for larger screens */
+}
+
+@media (max-width: 992px) {
+  .rules-card {
+    width: 90%; /* Adjust width for tablet view */
+    height: auto; /* Ensures content dictates height */
+  }
+}
+
+@media (max-width: 768px) {
+  .rules-card {
+    width: 90%; /* Adjust width for laptop view */
+    border-radius: 30px; /* Adjusted border-radius for laptop view */
+  }
+}
+
+@media (max-width: 576px) {
+  .rules-card {
+    margin-top: 30%;
+    height: 1550px; /* Adjust height for mobile view */
+    width: 90%; /* Adjust width for mobile view */
+    border-radius: 30px; /* Reduced padding for mobile view */
+     /* Center the card horizontally and adjust margin for better alignment */
+  }
+}
+
+.text {
+  margin-left: 4%;
+  margin-top: -40px;
+}
+
+.detail {
+  margin-left: 10%;
+  margin-top: -50px;
+}
+
+.a, .b, .c, .d {
+  margin-top: 3%;
+}
+
+.div {
+  width: 430px;
+  border-width: 20ch;
+  border-color: #143D64;
+}
+@media (max-width: 576px) {
+  .div{
+    width: 100%;
+  }
+  
+}
+
+.rh {
+  margin-left: 30%;
+  margin-top: -363px;
+}
+
+.rp {
+  margin-left: 30%;
+  margin-top: -10px;
+}
+
+.r2 {
+  margin-left: 30%;
+  margin-top: 0px;
+}
+
+.pl {
+  margin-left: 30%;
+  color: #FF5733;
+}
+
+.pr2 {
+  color: #FF5733;
+  margin-left: 60%;
+  margin-top: -70px;
+}
+@media (max-width: 576px) {
+  .pr2{
+    margin-top: 7%;
+  }
+}
+.pr1 {
+  margin-left: 60%;
+  margin-top: -40px;
+  color: #FF5733;
+}
+@media (max-width: 576px) {
+  .pr1{
+    margin-top: 7%;
+  }
+}
+.r3 {
+  margin-left: 30%;
+  margin-top: 50px;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #143D64;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin-left: 30%;
+}
+
+.button:hover {
+  background-color: #3e8e41;
+}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+@media (max-width: 992px) {
+  .text, .detail, .a, .b, .c, .d, .rh, .rp, .r2, .r3, .pl, .pr1, .pr2 {
+    margin-left: 0;
+    margin-right: 10%;
+  }
+
+  .rh {
+    margin-top: -180px;
+  }
+
+  .button {
+    margin-left: 20%;
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .text, .detail, .a, .b, .c, .d, .rh, .rp, .r2, .r3, .pl, .pr1, .pr2 {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .button {
+    margin-left: 10%;
+  }
+ 
+}
+@media (max-width: 992px) {
+  .text, .detail, .a, .b, .c, .d, .rh, .rp, .r2, .r3, .pl, .pr1, .pr2 {
+    margin-left: 0;
+    margin-right: 10%;
+  }
+
+  .detail {
+    margin-top: 20px; /* Adjusted margin-top to move .detail downwards */
+  }
+
+  .rh {
+    margin-top: -180px;
+  }
+
+  .button {
+    margin-left: 20%;
+  }
+}
+
+
+@media (max-width: 576px) {
+  .image{
+    margin-left: -223px;
+  }
+  .rh{
+    margin-top: -11px;
+  }
+}
