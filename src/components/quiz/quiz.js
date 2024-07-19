@@ -256,11 +256,12 @@ const Quiz = ({ setIsExamCompleted }) => {
       const uploadVideo = async () => {
         const blob = new Blob(recordedChunks, { type: 'video/webm' });
         const formData = new FormData();
-        const uploadUrl = `http://localhost:3011/upload/`;
+        const folderName = username; // or however you want to determine the folder name
+        const uploadUrl = `http://localhost:3011/upload/${encodeURIComponent(folderName)}`;
         formData.append('file', blob, ' video.webm');
         
         // 'file' should match your server-side handling
-        formData.append('folderName', username);
+        formData.append('folderName', name);
   
         try {
           const response = await axios.post(uploadUrl, formData ,{
@@ -270,7 +271,7 @@ const Quiz = ({ setIsExamCompleted }) => {
            
           });
           console.log(' last Video uploaded successfully!', response); 
-          alert(username);
+         
           if (exit) {
             if (response.status === 200) {
              navigate('/exit');
