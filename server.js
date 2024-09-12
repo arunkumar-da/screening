@@ -1,15 +1,21 @@
-const express = require('express'); // Fixed the syntax for importing express
+const express = require('express'); // Importing express
+const path = require('path'); // Importing path for file paths
 
-const path = require('path');
+const app = express(); // Creating an express app
 
-const app = express(); // Fixed the syntax for creating an express app
+// Serve static files from the 'build' directory
+app.use(express.static(path.join(__dirname, 'build')));
 
-app.use(express.static(path.join(__dirname, 'build'))); // Fixed `_dirname` to `__dirname`
-
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html')); // Fixed `_dirname` to `__dirname`
+// Handle all other routes and serve 'index.html'
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'), (err) => {
+    if (err) {
+      res.status(err.status || 500).send('Server Error');
+    }
+  });
 });
 
+// Start the server on port 9000
 app.listen(9000, () => {
-  console.log('Server is running on port 9000'); // Added a callback to log when the server is running
+  console.log('Server is running on port 9000'); // Log when server starts
 });
