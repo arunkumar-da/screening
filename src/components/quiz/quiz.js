@@ -32,7 +32,7 @@ const Quiz = ({ setIsExamCompleted }) => {
   const mediaRecorderRef = useRef(null);
   const [capturing, setCapturing] = useState(false);
   const [recordedChunks, setRecordedChunks] = useState([]);
-  const initialTime = 7200; // 2 hours in seconds
+  const initialTime = 1500; // 2 hours in seconds
   const [timeLeft, setTimeLeft] = useState(initialTime);
   const [disabled, setDisabled] = useState(true);
   const [checked, setChecked] = useState(false);
@@ -195,8 +195,8 @@ const Quiz = ({ setIsExamCompleted }) => {
         }
       });
       
-      if (swalCount > 3) {
-        swal("The Warning Is Shown More Than 3 Times", "error")
+      if (swalCount > 2) {
+        swal("The Warning Is Shown More Than 3 Times")
             .then(() => {
                 // Send warning email
                 const sendWarningEmail = async () => {
@@ -256,7 +256,7 @@ const Quiz = ({ setIsExamCompleted }) => {
       const uploadVideo = async () => {
         const blob = new Blob(recordedChunks, { type: 'video/webm' });
         const formData = new FormData();
-        const uploadUrl = `http://localhost:3011/upload/`;
+        const uploadUrl = `http://localhost:3011/upload/${username}`;
         formData.append('file', blob, ' video.webm');
         
         // 'file' should match your server-side handling
@@ -272,9 +272,15 @@ const Quiz = ({ setIsExamCompleted }) => {
           console.log(' last Video uploaded successfully!', response); 
           alert(username);
           if (exit) {
+            try{
+
+              await axios.post('http://localhost:5002/sendWarningEmail', { name: username });
             if (response.status === 200) {
+
              navigate('/exit');
-            }       
+            } }catch (error) {
+              console.error('Error sending email:', error);
+            }      
           }
           setRecordedChunks([]);
           setUpload(true);
