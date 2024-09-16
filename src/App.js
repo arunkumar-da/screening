@@ -78,7 +78,7 @@ const App = () => {
       <div className="App" tabIndex={0} >
         <AppProvider>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Form />} />
           {/* <Route path="/" element={<Summa />} /> */}
           <Route path="/form" element={<Form />} />
           <Route path="/rules" element={<Rules />} />
